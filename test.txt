@@ -1,3 +1,0 @@
-Here is the test file.
-
-First commit through intellij.
