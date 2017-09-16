@@ -1,2 +1,0 @@
-# HibernateRepo
-Hibernate Repository
