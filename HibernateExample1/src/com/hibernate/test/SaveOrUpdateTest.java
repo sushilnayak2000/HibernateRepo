@@ -9,7 +9,7 @@ import org.hibernate.cfg.Configuration;
 /**
  * Created by sushilnayak2000 on 9/17/2017.
  */
-public class InsertTest {
+public class SaveOrUpdateTest {
     public static void main(String[] args) {
         Configuration configuration = new Configuration();
         configuration.configure("product.cfg.xml");
@@ -21,11 +21,16 @@ public class InsertTest {
         product1.setPrice(25000.75);
         Product product2 = new Product();
         product2.setProductId(10002);
-        product2.setProductName("MOBILE");
-        product2.setPrice(15000.95);
+        product2.setProductName("Washing Machine");
+        product2.setPrice(20000.95);
+        Product product3 = new Product();
+        product3.setProductId(10003);
+        product3.setProductName("MOBILE");
+        product3.setPrice(17000.65);
         Transaction transaction = session.beginTransaction();
         session.save(product1);
-        session.save(product2);
+        session.saveOrUpdate(product2);
+        session.save(product3);
         transaction.commit();
         session.flush();
         System.out.println("Objects saved successfully!!!");
