@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.hibernate.model.Payment" table="payment">
+        <id name="paymentId" column="paymentId">
+            <generator class="assigned"/>
+        </id>
+        <discriminator column="dcolumn" type="java.lang.String"/>
+        <property name="amount" column="amount"></property>
+        <subclass name="com.hibernate.model.CreditCard" discriminator-value="CC">
+            <property name="creditCardType" column="cctype"/>
+        </subclass>
+        <subclass name="com.hibernate.model.Cheque" discriminator-value="Cheque">
+            <property name="chequeType" column="chequetype"/>
+        </subclass>
+    </class>
+
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+ <hibernate-configuration>
+    <session-factory>
+        <!--Database specific details-->
+        <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+        <property name="connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+        <property name="connection.username">system</property>
+        <property name="connection.password">manager</property>
+
+        <!--Hibernate related properties-->
+        <property name="hibernate.show_sql">true</property>
+        <property name="dialect">org.hibernate.dialect.OracleDialect</property>
+        <property name="hbm2ddl.auto">update</property>
+
+        <!--Mapping related properties-->
+        <mapping resource="payment.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
